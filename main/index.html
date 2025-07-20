@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rekap Stok BBM</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-wrapper">
+      <nav class="navbar">
+        <div class="navbar-logo-container">
+          <img src="logo.png" alt="Logo BBM" class="navbar-logo" />
+        </div>
+        <div class="navbar-title">
+          <h1 class="text-dark">Sistem Rekap Stok Harian Pt. Mitra Keluarga</h1>
+        </div>
+        <div class="navbar-links">
+          <a href="../main/index.html" class="nav-link active" id="show-harian">Kontrol Meter</a>
+          <a href="../kalkulator/index.html" class="nav-link" id="show-bulanan">Nilai Penjualan Kontan</a>
+          <a href="../rekap/index.html" class="nav-link" id="show-bulanan">Buku Stok BBM</a>
+          <a href="../setoran/index.html" class="nav-link" id="show-bulanan">Setoran BBM</a>
+          <a href="../kasbank/index.html" class="nav-link" id="show-bulanan">Mutasi Kas Bank</a>
+          <a href="../kasharian/index.html" class="nav-link" id="show-bulanan">Mutasi Kas Bank Harian</a>
+        </div>
+      </nav>
+
+      <div class="container" id="harian-rekap-container">
+        <h1>BUKU KONTROL METER</h1>
+
+        <div class="main-content">
+          <div class="left-panel">
+            <div id="bbm-sections"></div>
+            <button id="download-excel">Download Rekap Excel</button>
+            <button id="hapus-data" class="btn-danger">Hapus Semua Data</button>
+          </div>
+
+          <div class="right-panel">
+            <div id="riwayat-container">
+              <h2>Riwayat Perhitungan & Penggunaan</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container hidden" id="bulanan-rekap-container">
+        <h1>Rekap Bulanan Stok BBM</h1>
+        <div id="monthly-recap-table-container">
+          <p>Memuat rekap bulanan...</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="js/monthlyRecap.js"></script>
+
+    <script>
+      // This function hides/shows the appropriate content container
+      function showPage(pageId) {
+        document.getElementById('harian-rekap-container').classList.add('hidden');
+        document.getElementById('bulanan-rekap-container').classList.add('hidden');
+
+        document.getElementById(`${pageId}-rekap-container`).classList.remove('hidden');
+
+        // Update active link in navbar
+        document.getElementById('show-harian').classList.remove('active');
+        document.getElementById('show-bulanan').classList.remove('active');
+        document.getElementById(`show-${pageId}`).classList.add('active');
+      }
+
+      // Set initial page view on load
+      document.addEventListener('DOMContentLoaded', () => {
+        // Check if there's a hash in the URL (e.g., yoursite.com/#bulanan)
+        const currentHash = window.location.hash.substring(1);
+        if (currentHash === 'bulanan') {
+          showPage('bulanan');
+          // Ensure renderMonthlyRecap runs when page is loaded directly via hash
+          if (typeof renderMonthlyRecap === 'function') {
+            renderMonthlyRecap();
+          }
+        } else {
+          showPage('harian');
+        }
+      });
+    </script>
+  </body>
+</html>

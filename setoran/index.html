@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Rekap Setoran BBM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-wrapper">
+      <nav class="navbar">
+        <div class="navbar-logo-container">
+          <img src="logo.png" alt="Logo BBM" class="navbar-logo" />
+        </div>
+        <div class="navbar-title">
+          <h1 class="text-dark">Sistem Rekap Stok Harian Pt. Mitra Keluarga</h1>
+        </div>
+        <div class="navbar-links">
+          <a href="../main/index.html" class="nav-link active" id="show-harian">Kontrol Meter</a>
+          <a href="../kalkulator/index.html" class="nav-link" id="show-bulanan">Nilai Penjualan Kontan</a>
+          <a href="../rekap/index.html" class="nav-link" id="show-bulanan">Buku Stok BBM</a>
+          <a href="../setoran/index.html" class="nav-link" id="show-bulanan">Setoran BBM</a>
+          <a href="../kasbank/index.html" class="nav-link" id="show-bulanan">Mutasi Kas Bank</a>
+          <a href="../kasharian/index.html" class="nav-link" id="show-bulanan">Mutasi Kas Bank Harian</a>
+        </div>
+      </nav>
+
+    <div class="container">
+        <h1>Rekap Setoran BBM</h1>
+
+        <div class="fuel-type-selection">
+            <label for="fuelType">Pilih Jenis BBM untuk Input:</label>
+            <select id="fuelType">
+                <option value="solar">Solar</option>
+                <option value="pertalite">Pertalite</option>
+                <option value="pertamax">Pertamax</option>
+                <option value="pertaminadex">Pertamina Dex</option>
+            </select>
+        </div>
+
+        <div class="input-section">
+            <h2>Input Data</h2>
+            <div class="input-group">
+                <h3>Saldo Awal</h3>
+                <label for="initialLiter">Liter:</label>
+                <input type="number" id="initialLiter" placeholder="Jumlah Liter">
+                <label for="initialRupiah">Rupiah:</label>
+                <input type="number" id="initialRupiah" placeholder="Jumlah Rupiah">
+                <label for="initialHargaSatuan">Harga Satuan:</label>
+                <input type="number" id="initialHargaSatuan" placeholder="Harga Satuan">
+                <button onclick="addInitialBalance()">Tambah Saldo Awal</button>
+            </div>
+
+            <div class="input-group">
+                <h3>Terima (Pengambilan)</h3>
+                <label for="receiveLiter">Liter:</label>
+                <input type="number" id="receiveLiter" placeholder="Jumlah Liter">
+                <label for="receiveRupiah">Rupiah:</label>
+                <input type="number" id="receiveRupiah" placeholder="Jumlah Rupiah">
+                <label for="receiveHargaSatuan">Harga Satuan:</label>
+                <input type="number" id="receiveHargaSatuan" placeholder="Harga Satuan">
+                <button onclick="addReceiveEntry()">Tambah Data Terima</button>
+            </div>
+
+            <div class="input-group">
+                <h3>Setoran</h3>
+                <label for="setorLiter">Liter:</label>
+                <input type="number" id="setorLiter" placeholder="Jumlah Liter">
+                <label for="setorRupiah">Rupiah:</label>
+                <input type="number" id="setorRupiah" placeholder="Jumlah Rupiah">
+                <label for="setorHargaSatuan">Harga Satuan:</label>
+                <input type="number" id="setorHargaSatuan" placeholder="Harga Satuan">
+                <button onclick="addSetorEntry()">Tambah Data Setoran</button>
+            </div>
+        </div>
+
+        <div class="history-section">
+            <h2>Riwayat Rekap</h2>
+            <button onclick="exportAllFuelsSideBySideToExcel()" class="export-button">Ekspor Semua ke Excel</button>
+            
+            <div id="solarTable" class="fuel-table">
+                <h3>Solar</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th rowspan="2">Tanggal</th>
+                            <th rowspan="2">Keterangan</th>
+                            <th colspan="3">Setoran</th>
+                            <th colspan="3">Terima</th>
+                            <th colspan="3">Saldo</th>
+                        </tr>
+                        <tr>
+                            <th>Qty (Ltr)</th>
+                            <th>Rupiah</th>
+                            <th>Hasat</th>
+                            <th>Qty (Ltr)</th>
+                            <th>Rupiah</th>
+                            <th>Hasat</th>
+                            <th>Qty (Ltr)</th>
+                            <th>Rupiah</th>
+                            <th>Hasat</th>
+                        </tr>
+                    </thead>
+                    <tbody id="solarTableBody">
+                        </tbody>
+                </table>
+            </div>
+
+            <div id="pertaliteTable" class="fuel-table">
+                <h3>Pertalite</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th rowspan="2">Tanggal</th>
+                            <th rowspan="2">Keterangan</th>
+                            <th colspan="3">Setoran</th>
+                            <th colspan="3">Terima</th>
+                            <th colspan="3">Saldo</th>
+                        </tr>
+                        <tr>
+                            <th>Qty (Ltr)</th>
+                            <th>Rupiah</th>
+                            <th>Hasat</th>
+                            <th>Qty (Ltr)</th>
+                            <th>Rupiah</th>
+                            <th>Hasat</th>
+                            <th>Qty (Ltr)</th>
+                            <th>Rupiah</th>
+                            <th>Hasat</th>
+                        </tr>
+                    </thead>
+                    <tbody id="pertaliteTableBody">
+                        </tbody>
+                </table>
+            </div>
+
+            <div id="pertamaxTable" class="fuel-table">
+                <h3>Pertamax</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th rowspan="2">Tanggal</th>
+                            <th rowspan="2">Keterangan</th>
+                            <th colspan="3">Setoran</th>
+                            <th colspan="3">Terima</th>
+                            <th colspan="3">Saldo</th>
+                        </tr>
+                        <tr>
+                            <th>Qty (Ltr)</th>
+                            <th>Rupiah</th>
+                            <th>Hasat</th>
+                            <th>Qty (Ltr)</th>
+                            <th>Rupiah</th>
+                            <th>Hasat</th>
+                            <th>Qty (Ltr)</th>
+                            <th>Rupiah</th>
+                            <th>Hasat</th>
+                        </tr>
+                    </thead>
+                    <tbody id="pertamaxTableBody">
+                        </tbody>
+                </table>
+            </div>
+
+            <div id="pertaminadexTable" class="fuel-table">
+                <h3>Pertamina Dex</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th rowspan="2">Tanggal</th>
+                            <th rowspan="2">Keterangan</th>
+                            <th colspan="3">Setoran</th>
+                            <th colspan="3">Terima</th>
+                            <th colspan="3">Saldo</th>
+                        </tr>
+                        <tr>
+                            <th>Qty (Ltr)</th>
+                            <th>Rupiah</th>
+                            <th>Hasat</th>
+                            <th>Qty (Ltr)</th>
+                            <th>Rupiah</th>
+                            <th>Hasat</th>
+                            <th>Qty (Ltr)</th>
+                            <th>Rupiah</th>
+                            <th>Hasat</th>
+                        </tr>
+                    </thead>
+                    <tbody id="pertaminadexTableBody">
+                        </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,278 @@
+/* Gaya dasar untuk seluruh halaman */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    margin: 0; /* Pastikan tidak ada margin default pada body */
+    padding: 0; /* Pastikan tidak ada padding default pada body */
+}
+
+/* Wrapper utama untuk tata letak flexbox (navbar di kiri, konten di kanan) */
+.app-wrapper {
+    display: flex; /* Mengatur children (navbar dan container) secara horizontal */
+    min-height: 100vh; /* Memastikan wrapper setidaknya setinggi viewport */
+    width: 100%; /* Memastikan wrapper mengisi seluruh lebar body */
+    /* background-image: url('path/ke/foto/anda.jpg'); */ /* Sesuaikan atau hapus sesuai kebutuhan Anda */
+    /* background-size: cover; */
+    /* background-repeat: no-repeat; */
+    /* background-attachment: fixed; */
+    /* Tambahkan padding di sini jika Anda ingin ada ruang di sekitar konten utama dan navbar */
+    padding: 20px; /* Memberi ruang di sekitar keseluruhan app */
+    box-sizing: border-box; /* Memastikan padding termasuk dalam lebar/tinggi */
+}
+
+/* Gaya untuk Navbar */
+.navbar {
+    background-color: #ffffff; /* Latar belakang putih */
+    color: #333; /* Warna teks default untuk navbar, agar terlihat di latar belakang putih */
+    width: 250px; /* Lebar navbar */
+    padding: 20px;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1); /* Bayangan di sisi kanan */
+    display: flex;
+    flex-direction: column; /* Item di dalam navbar disusun vertikal */
+    align-items: center; /* Pusatkan item secara horizontal */
+    justify-content: flex-start; /* Item dimulai dari atas */
+    gap: 30px; /* Jarak antar elemen utama di navbar */
+    min-height: 100%; /* Memastikan navbar mengisi tinggi app-wrapper */
+    flex-shrink: 0; /* Mencegah navbar menyusut */
+    position: sticky; /* Membuat navbar tetap di posisi saat scroll */
+    top: 0; /* Tetap di bagian atas viewport */
+    left: 0;
+    z-index: 1000; /* Pastikan navbar di atas konten lain */
+    border-radius: 10px; /* Sudut membulat untuk navbar */
+}
+
+.navbar-title {
+    /* color: white; */ /* Dihapus karena text-dark sudah mengaturnya */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px; /* Jarak di bawah judul */
+}
+
+.navbar-logo-container {
+    margin-bottom: 20px;
+}
+
+.navbar-logo {
+    height: 60px;
+    width: auto;
+}
+
+/* Teks gelap untuk judul di navbar (sesuai dengan class text-dark di HTML) */
+.text-dark {
+    color: #333; /* Warna gelap untuk judul */
+    margin: 0;
+    font-size: 1.5em;
+    line-height: 1.2;
+}
+
+/* Gaya untuk link navigasi di navbar */
+.navbar-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.nav-link {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #0056b3; /* Warna teks link default */
+    background-color: #f0f0f0; /* Latar belakang link default */
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    text-align: center;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    background-color: #e0e0e0;
+    color: #004085;
+}
+
+.nav-link.active {
+    background-color: #007bff; /* Warna latar belakang untuk link aktif */
+    color: white; /* Warna teks untuk link aktif */
+}
+
+/* Konten utama di sebelah kanan navbar */
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    flex-grow: 1; /* Memungkinkan container mengambil sisa ruang */
+    max-width: calc(100% - 250px - 40px); /* 100% - lebar navbar - total padding app-wrapper */
+    margin-left: 20px; /* Jarak antara navbar dan container */
+    text-align: center;
+    box-sizing: border-box; /* Penting untuk perhitungan lebar */
+}
+
+/* Koreksi selector h1 dan h2 */
+h1, h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.input-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.input-section label {
+    flex-basis: 100%;
+    text-align: left;
+    font-weight: bold;
+    color: #34495e;
+}
+
+.input-section input[type="number"],
+.input-section select {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    width: calc(50% - 10px);
+    box-sizing: border-box;
+}
+
+.input-section select {
+    background-color: #fff;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007bff%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13.2-5.4H18.6c-5%200-9.3%201.8-13.2%205.4-3.9%203.6-5.9%208.1-5.9%2013.2%200%205%201.8%209.3%205.9%2013.2l128%20128c3.6%203.6%208.1%205.4%2013.2%205.4s9.6-1.8%2013.2-5.4l128-128c3.6-3.6%205.4-8.1%205.4-13.2%200-5-1.8-9.3-5.4-13.2z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 12px;
+    padding-right: 30px;
+}
+
+.input-section button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: #fff;
+    flex-grow: 1;
+    max-width: 200px;
+}
+
+#hitungBtn {
+    background-color: #28a745;
+}
+
+#hitungBtn:hover {
+    background-color: #218838;
+}
+
+#exportExcelBtn {
+    background-color: #007bff;
+}
+
+#exportExcelBtn:hover {
+    background-color: #0056b3;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    margin: 40px 0;
+}
+
+/* Gaya untuk header tanggal di tabel */
+.date-header td {
+    font-size: 1.1em;
+    background-color: #e0f2f7 !important;
+    color: #2c3e50;
+    text-align: left !important;
+    padding: 15px 10px;
+    border-bottom: 2px solid #ccc;
+    margin-top: 20px;
+}
+
+/* Penyesuaian untuk sel data di bawah header tanggal */
+table tbody tr:not(.date-header) td:first-child {
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    border: 1px solid #dee2e6;
+    padding: 12px;
+    text-align: left;
+}
+
+table th {
+    background-color: #ecf0f1;
+    color: #34495e;
+    font-weight: bold;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+table tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+/* Media Queries untuk Responsivitas */
+@media (max-width: 768px) {
+    .app-wrapper {
+        flex-direction: column; /* Navbar di atas, konten di bawah */
+        padding: 10px; /* Kurangi padding keseluruhan */
+    }
+
+    .navbar {
+        width: 100%; /* Navbar mengambil seluruh lebar */
+        position: relative; /* Tidak lagi sticky di samping */
+        min-height: auto; /* Tinggi otomatis */
+        margin-bottom: 20px; /* Jarak antara navbar dan konten */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Bayangan di bawah */
+    }
+
+    .navbar-links {
+        flex-direction: row; /* Link navigasi berjejer horizontal */
+        flex-wrap: wrap; /* Izinkan wrap jika terlalu banyak link */
+        justify-content: center; /* Pusatkan link */
+    }
+
+    .nav-link {
+        flex-grow: 1; /* Link mengisi ruang */
+        max-width: 150px; /* Batasi lebar link */
+    }
+
+    .container {
+        margin-left: 0; /* Hapus margin kiri */
+        max-width: 100%; /* Ambil seluruh lebar yang tersedia */
+        padding: 20px; /* Sesuaikan padding konten */
+    }
+
+    .input-section input[type="number"],
+    .input-section select,
+    .input-section button {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+/* Media Queries untuk layar sangat kecil */
+@media (max-width: 480px) {
+    .nav-link {
+        max-width: none; /* Link mengambil seluruh lebar pada layar sangat kecil */
+    }
+}

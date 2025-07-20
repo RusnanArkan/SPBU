@@ -1,0 +1,286 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    color: #333;
+    min-height: 100vh; 
+}
+
+.app-wrapper {
+    display: flex; 
+    min-height: 100vh; 
+    background-image: url('path/ke/foto/anda.jpg'); /* Adjust or remove as needed */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Gaya untuk Navbar */
+/* Gaya untuk Navbar */
+.navbar {
+    background-color: #ffffff;
+    color: white; 
+    width: 250px; 
+    padding: 20px; 
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1); 
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: flex-start; 
+    gap: 30px; 
+    min-height: 100vh; 
+    position: sticky; 
+    top: 0; 
+    left: 0;
+    z-index: 1000; 
+}
+
+.navbar-title {
+    color: white;
+    display: flex;
+    align-items: center;
+    text-align: center; 
+}
+
+.navbar-logo-container {
+    margin-bottom: 20px; 
+}
+
+.navbar-logo {
+    height: 60px; 
+    width: auto;
+}
+
+/* Teks gelap untuk judul di navbar (sesuai dengan class text-dark di HTML) */
+.text-dark { 
+    color: #333; /* Use a dark color for the title if navbar background is light */
+    margin: 0;
+    font-size: 1.5em; 
+    line-height: 1.2; 
+}
+
+/* New styles for navbar links */
+.navbar-links {
+    display: flex;
+    flex-direction: column; 
+    gap: 10px; 
+    width: 100%; 
+    margin-top: 20px; 
+}
+
+.nav-link {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #0056b3; 
+    background-color: #f0f0f0; 
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    text-align: center; 
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    background-color: #e0e0e0;
+    color: #004085;
+}
+
+.nav-link.active {
+    background-color: #007bff; 
+    color: white; 
+}
+
+/* Konten utama di sebelah kanan navbar */
+.container {
+    flex-grow: 1; 
+    max-width: 1400px; 
+    margin: 20px; 
+    background-color: #fff; 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; 
+}
+
+h1, h2 {
+    text-align: center;
+    color: #0056b3;
+}
+
+.main-content {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.left-panel {
+    flex: 1;
+    min-width: 350px;
+}
+
+.right-panel {
+    flex: 1.5;
+    min-width: 500px;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.bbm-card {
+    background-color: #e9f5ff;
+    border: 1px solid #cce5ff;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.bbm-card h3 {
+    margin-top: 0;
+    color: #004085;
+}
+
+.bbm-card label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.bbm-card input[type="number"],
+.bbm-card input[type="text"],
+.bbm-card select { /* Added select here */
+    width: calc(100% - 22px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.bbm-card button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.bbm-card button:hover {
+    background-color: #0056b3;
+}
+
+.stok-info {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #28a745;
+    margin-top: 10px;
+}
+
+#download-excel {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+#download-excel:hover {
+    background-color: #218838;
+}
+
+.btn-danger {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.riwayat-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.riwayat-table th, .riwayat-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.riwayat-table th {
+    background-color: #f2f2f2;
+}
+
+.riwayat-group-header {
+    background-color: #e0e0e0;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Crucial for hiding/showing pages */
+.hidden {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+    .app-wrapper {
+        flex-direction: column; 
+    }
+    .navbar {
+        width: 100%; 
+        min-height: auto; 
+        position: relative; 
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+        flex-direction: row; 
+        justify-content: space-between; 
+        gap: 0; 
+    }
+    .navbar-title {
+        text-align: left; 
+    }
+    .navbar-logo-container {
+        margin-bottom: 0; 
+    }
+    .text-dark { 
+        font-size: 1.2em; 
+    }
+    .navbar-logo {
+        height: 30px; 
+    }
+    .container {
+        margin: 10px; 
+    }
+    .main-content {
+        flex-direction: column;
+    }
+    .left-panel, .right-panel {
+        width: 100%;
+        min-width: unset;
+    }
+    .navbar-links {
+        flex-direction: row; /* Make links horizontal on small screens */
+        justify-content: space-around;
+        padding: 10px 0;
+    }
+    .nav-link {
+        flex-grow: 1; /* Distribute space evenly */
+        margin: 0 5px; /* Add some horizontal margin */
+    }
+}

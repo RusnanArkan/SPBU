@@ -1,0 +1,237 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    margin: 0; /* Pastikan tidak ada margin default pada body */
+    padding: 0; /* Pastikan tidak ada padding default pada body */
+}
+
+/* Wrapper utama untuk tata letak flexbox (navbar di kiri, konten di kanan) */
+.app-wrapper {
+    display: flex; /* Mengatur children (navbar dan container) secara horizontal */
+    min-height: 100vh; /* Memastikan wrapper setidaknya setinggi viewport */
+    width: 100%; /* Memastikan wrapper mengisi seluruh lebar body */
+    /* background-image: url('path/ke/foto/anda.jpg'); */ /* Sesuaikan atau hapus sesuai kebutuhan Anda */
+    /* background-size: cover; */
+    /* background-repeat: no-repeat; */
+    /* background-attachment: fixed; */
+    /* Tambahkan padding di sini jika Anda ingin ada ruang di sekitar konten utama dan navbar */
+    padding: 20px; /* Memberi ruang di sekitar keseluruhan app */
+    box-sizing: border-box; /* Memastikan padding termasuk dalam lebar/tinggi */
+}
+
+/* Gaya untuk Navbar */
+.navbar {
+    background-color: #ffffff; /* Latar belakang putih */
+    color: #333; /* Warna teks default untuk navbar, agar terlihat di latar belakang putih */
+    width: 250px; /* Lebar navbar */
+    padding: 20px;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1); /* Bayangan di sisi kanan */
+    display: flex;
+    flex-direction: column; /* Item di dalam navbar disusun vertikal */
+    align-items: center; /* Pusatkan item secara horizontal */
+    justify-content: flex-start; /* Item dimulai dari atas */
+    gap: 30px; /* Jarak antar elemen utama di navbar */
+    min-height: 100%; /* Memastikan navbar mengisi tinggi app-wrapper */
+    flex-shrink: 0; /* Mencegah navbar menyusut */
+    position: sticky; /* Membuat navbar tetap di posisi saat scroll */
+    top: 0; /* Tetap di bagian atas viewport */
+    left: 0;
+    z-index: 1000; /* Pastikan navbar di atas konten lain */
+    border-radius: 10px; /* Sudut membulat untuk navbar */
+}
+
+.navbar-title {
+    /* color: white; */ /* Dihapus karena text-dark sudah mengaturnya */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px; /* Jarak di bawah judul */
+}
+
+.navbar-logo-container {
+    margin-bottom: 20px;
+}
+
+.navbar-logo {
+    height: 60px;
+    width: auto;
+}
+
+/* Teks gelap untuk judul di navbar (sesuai dengan class text-dark di HTML) */
+.text-dark {
+    color: #333; /* Warna gelap untuk judul */
+    margin: 0;
+    font-size: 1.5em;
+    line-height: 1.2;
+}
+
+/* Gaya untuk link navigasi di navbar */
+.navbar-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.nav-link {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #0056b3; /* Warna teks link default */
+    background-color: #f0f0f0; /* Latar belakang link default */
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    text-align: center;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    background-color: #e0e0e0;
+    color: #004085;
+}
+
+.nav-link.active {
+    background-color: #007bff; /* Warna latar belakang untuk link aktif */
+    color: white; /* Warna teks untuk link aktif */
+}
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+    color: #0056b3;
+    text-align: center;
+}
+
+.fuel-type-selection {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-section {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #e9f7ff;
+}
+
+.input-group {
+    flex: 1;
+    min-width: 280px;
+    padding: 15px;
+    border: 1px solid #b3d9ff;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-group input[type="number"] {
+    width: calc(100% - 20px);
+    padding: 8px 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.input-group button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.input-group button:hover {
+    background-color: #0056b3;
+}
+
+.history-section {
+    margin-top: 30px;
+}
+
+.fuel-table {
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #e9f7ff;
+}
+
+.fuel-table h3 {
+    text-align: left;
+    margin-top: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.hidden {
+    display: none;
+}
+
+.export-button {
+    background-color: #28a745; /* Warna hijau untuk ekspor */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 20px;
+    display: block; /* Agar tombol memiliki lebar penuh dan margin bisa diterapkan */
+    width: fit-content; /* Sesuai dengan konten teks */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.export-button:hover {
+    background-color: #218838;
+}
+
+.fuel-table {
+  margin-bottom: 40px; /* beri jarak antar tabel */
+}

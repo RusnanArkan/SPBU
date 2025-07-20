@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manajemen Stok BBM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-wrapper">
+      <nav class="navbar">
+        <div class="navbar-logo-container">
+          <img src="logo.png" alt="Logo BBM" class="navbar-logo" />
+        </div>
+        <div class="navbar-title">
+          <h1 class="text-dark">Sistem Rekap Stok Harian Pt. Mitra Keluarga</h1>
+        </div>
+        <div class="navbar-links">
+          <a href="../main/index.html" class="nav-link active" id="show-harian">Kontrol Meter</a>
+          <a href="../kalkulator/index.html" class="nav-link" id="show-bulanan">Nilai Penjualan Kontan</a>
+          <a href="../rekap/index.html" class="nav-link" id="show-bulanan">Buku Stok BBM</a>
+          <a href="../setoran/index.html" class="nav-link" id="show-bulanan">Setoran BBM</a>
+          <a href="../kasbank/index.html" class="nav-link" id="show-bulanan">Mutasi Kas Bank</a>
+          <a href="../kasharian/index.html" class="nav-link" id="show-bulanan">Mutasi Kas Bank Harian</a>
+        </div>
+      </nav>
+
+    <div class="container">
+        <h1>BUKU STOK BBM</h1>
+        
+        <div id="bbm-sections" class="bbm-grid">
+            </div>
+
+        <hr>
+
+        <div class="actions">
+            <button id="download-excel">📥 Unduh Rekap Excel</button>
+            <button id="hapus-data" class="reset-button">🗑️ Hapus Semua Data</button>
+        </div>
+
+        <hr>
+
+        <div id="riwayat-container">
+            </div>
+    </div>
+
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
