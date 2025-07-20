@@ -1,0 +1,10 @@
+{
+  "rewrites": [
+    { "source": "/main", "destination": "/main/index.html" },
+    { "source": "/kalkulator", "destination": "/kalkulator/index.html" },
+    { "source": "/rekap", "destination": "/rekap/index.html" },
+    { "source": "/setoran", "destination": "/setoran/index.html" },
+    { "source": "/kasbank", "destination": "/kasbank/index.html" },
+    { "source": "/kasharian", "destination": "/kasharian/index.html" }
+  ]
+}
